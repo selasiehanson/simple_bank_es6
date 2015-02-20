@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+  <div id="main" class="container"></div>
+  <script src="bower_components/react/react.js"></script>
+  <script src="bower_components/react-router/dist/react-router.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <!-- <script src="bower_components/react/JSXTransformer.js"></script> -->
+  <script src="build/app.js"></script>
+  <script src="build/master.js"></script>
+  <script src="build/checkaccounts.js"></script>
+  <script src="build/login.js"></script>
+  <script src="build/logout.js"></script>
+  <script src="build/transferfunds.js"></script>
+  <script src="build/accountshistory.js"></script>
+  <script src="build/appmenu.js"></script>
+  <script src="build/newaccount.js"></script>
+  <script src="build/router.js"></script>
+  <script>
+
+
+  var routes = require("app/router")["default"];
+
+  ReactRouter.run (routes, function(Handler){
+    React.render(<Handler />, document.getElementById('main'));
+  });
+  </script>
+</body>
+</html>
