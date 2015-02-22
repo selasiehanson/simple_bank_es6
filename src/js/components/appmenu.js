@@ -8,11 +8,11 @@ var Link  = ReactRouter.Link
 var AppMenu = React.createClass({
   render : function (){
     return (
-        <div className="col-md-12">
-          <Link className="btn btn-primary" to="checkAccounts">Check accounts</Link>
-          <Link className="btn btn-primary col-md-offset-1" to="transferFunds">Transfer funds</Link>
-          <Link className="btn btn-primary  col-md-offset-1" to="accountHistory">Accounts History</Link>
-        </div>
+      <ul className="nav nav-sidebar">
+          <li> <Link className="" to="checkAccounts">Check accounts</Link> </li>
+          <li><Link className="" to="transferFunds">Transfer funds</Link></li>
+          <li><Link className="" to="accountHistory">Accounts History</Link></li>
+        </ul>
     );
   }
 });
