@@ -9,9 +9,10 @@ var AppMenu = React.createClass({
   render : function (){
     return (
       <ul className="nav nav-sidebar">
-          <li> <Link className="" to="checkAccounts">Check accounts</Link> </li>
+          <li> <Link className="" to="checkAccounts">Accounts</Link> </li>
           <li><Link className="" to="transferFunds">Transfer funds</Link></li>
           <li><Link className="" to="accountHistory">Accounts History</Link></li>
+          <li><Link className="" to="signup">New Account</Link></li>
         </ul>
     );
   }

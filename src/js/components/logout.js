@@ -7,7 +7,11 @@ var Logout = React.createClass({
     Auth.logout();
   },
   render: function (){
-    return (<h2> Logged out </h2>);
+    return (
+      <div className="centerbox container">
+        <h2> Logged out </h2>
+      </div>
+    );
   }
 });
 

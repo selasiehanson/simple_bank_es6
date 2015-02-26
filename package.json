@@ -22,6 +22,7 @@
     "gulp-uglify": "^1.0.2",
     "gulp-util": "^3.0.2",
     "gulp-watch": "^3.0.0",
+    "http-proxy": "^1.8.1",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.4",
@@ -32,6 +33,7 @@
     "karma-sinon-chai": "^0.2.0",
     "mocha": "^2.1.0",
     "rimraf": "^2.2.8",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.2",
+    "proxy-middleware":""
   }
 }

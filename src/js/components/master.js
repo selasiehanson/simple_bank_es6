@@ -31,17 +31,13 @@ var Master = React.createClass({
     render: function (){
       var links = [];
       if (this.state.loggedIn) {
-        links.push(<li><Link to="home">Home</Link></li>)
+        links.push(<li><span className="welcome-box">Welcome Kofi Manu </span></li>)
         links.push(<li><Link to="logout">Log out</Link></li>)
       }else {
         links.push(<li><Link to="signin">Sign in</Link></li>)
         links.push(<li><Link to="signup">Sign up</Link></li>)
       }
       return(<div>
-        <h2> BDC APP</h2>
-        <ul>
-           { links }
-         </ul>
 
          <div className="navbar navbar-default navbar-fixed-top" role="navigation">
           <div className="container-fluid">
@@ -52,19 +48,11 @@ var Master = React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">BDC</a>
+              <a className="navbar-brand">BDC</a>
             </div>
-            <div className="navbar-collapse collapse">              
+            <div className="navbar-collapse collapse">
               <ul className="nav navbar-nav navbar-right">
-                <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">Welcome Kofi Manu <span className="caret"></span></a>
-                  <ul className="dropdown-menu" role="menu">
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">App Settings</a></li>
-                    <li className="divider"></li>
-                    <li><a href="#">Sign out</a></li>
-                  </ul>
-                </li>
+                {{ links }}
               </ul>
               </div>
             </div>

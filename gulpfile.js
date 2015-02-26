@@ -7,6 +7,9 @@ var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var karma = require('karma').server;
 
+var url = require('url'); // https://www.npmjs.org/package/url
+var proxy = require('proxy-middleware');
+
 // DEVELOPMENT TASKS
 //================================================
 
@@ -16,6 +19,11 @@ var karma = require('karma').server;
 * 3. JSX: Transform jsx React files and put in build 'build' folder
 * 4. Compile sass files, autoprefix and put in 'build' folder
 * */
+
+var proxyOptions = url.parse('http://localhost:8050');
+proxyOptions.route = "/api"
+
+var middlewares = [proxy(proxyOptions)];
 
  // BrowserSync Server
 gulp.task('browser-sync', function() {
@@ -27,7 +35,8 @@ gulp.task('browser-sync', function() {
   {
     notify: false,
     server: {
-      baseDir: ['./']
+      baseDir: ['./'],
+      middleware: middlewares
     },
     port: 3500,
     browser: [],

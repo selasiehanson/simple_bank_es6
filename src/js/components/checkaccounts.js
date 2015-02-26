@@ -3,7 +3,10 @@ import React from 'react'
 
 var CheckAccounts = React.createClass({
   render: function (){
-    return(<h2> Checking accounts </h2>);
+    return(
+      <div className="page-header">
+        <h2>Accounts </h2>
+      </div>);
   }
 });
 

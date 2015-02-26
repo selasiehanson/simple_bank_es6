@@ -15,11 +15,11 @@ var App = React.createClass({
             <div className="row" id="mainApp">
                 <div className="sidebar">
                     <ul className="nav nav-sidebar">
-                        <li> <a href="" className="side-caption"> APPS </a> </li>
+                        <li> <a className="side-caption"> APPS </a> </li>
                     </ul>
                       <AppMenu />
                 </div>
-                <div className="main container" >
+                <div className="main container-fluid" >
                     <div ng-app="masterAppApp" className="pane ">
                       <RouteHandler />
                     </div>

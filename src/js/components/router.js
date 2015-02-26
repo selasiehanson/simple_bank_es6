@@ -23,10 +23,10 @@ var routes = (
         <Route name="checkAccounts" handler={CheckAccounts} />
         <Route name="transferFunds" handler={TransferFunds} />
         <Route name="accountHistory" handler={AccountsHistory} />
+        <Route name="signup" handler={NewAccount} />
       </Route>
       <Route name="signin" handler={Login} />
       <Route name="logout" handler={Logout} />
-      <Route name="signup" handler={NewAccount} />
     </Route>
   );
 

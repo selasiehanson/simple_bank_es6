@@ -15,7 +15,7 @@ var AccountsHistory = React.createClass({
   render: function (){
     var rows = this.state.details.map(function (detail, idx){
       return (<tr>
-            <td>  {idx + 1}. </td>
+            <td> {idx + 1}. </td>
             <td> {detail.date} </td>
             <td> {detail.transactionType} </td>
             <td> {detail.transactionBy} </td>
@@ -24,16 +24,15 @@ var AccountsHistory = React.createClass({
     });
     return(
       <div>
-        <br />
-        <h2> Accounts History </h2>
+        <div className="page-header"> <h2> Accounts History </h2> </div>
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th> # </th>
-              <th> Date </th>
-              <th> Transaction Type </th>
-              <th> Transaction By</th>
-              <th> Amount </th>
+              <th>#</th>
+              <th>Date</th>
+              <th>Transaction Type</th>
+              <th>Transaction By</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>

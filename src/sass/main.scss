@@ -1,8 +1,4 @@
-/* body {
-  margin-top: 40px;
-  background-size: contain;
-}
- */
+
 .formbox {
   width: 400px;
   margin-left: auto;
@@ -23,7 +19,7 @@
  /**
   * varaiables
   */
- $body-padding-top: 50px;
+ $body-padding-top: 0px;
 
  $navbar-background: #27709b;
  $navbar-background: #474D57;
@@ -38,7 +34,7 @@
 
  $sidebar-link-color: #777;
  $sidebar-link-active-color: #333;
- $sidebar-link-active-background-color: #AFAFAF;
+ $sidebar-link-active-background-color: #4e4e4e;
  $sidebar-link-weight: 600;
  /*
   * Base structure
@@ -139,28 +135,38 @@
    font-weight: $sidebar-link-weight;
  }
 
+
+.welcome-box {
+  padding: 15px;
+  display: block;
+  color: white;
+  font-weight: bold;
+}
  /*
   * Main content
   */
 
- .main {
+.main {
    padding: 0px;
    left: $sidebar-width ;
    overflow: hidden;
    right: 0;
    position: absolute;
+   top: 40px;
    .content {
      padding: 0px 10px;
-     // margin-left: 40px;
-     // margin-right: 40p;
-
    }
  }
 
+.centerbox {
+  top: 100px;
+  position: relative;
+}
+
  @media (min-width: 768px) {
    .main {
-     padding-right: 0px;
-     padding-left: 0px;
+     padding-right: 15px;
+     padding-left: 15px;
    }
  }
 

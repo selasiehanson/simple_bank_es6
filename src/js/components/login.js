@@ -34,7 +34,7 @@ var Login = React.createClass({
   render : function (){
     var errors = this.state.error ? <p>Invalid Login </p> : '';
     return (
-      <div className="formbox">
+      <div className="formbox centerbox">
         <h2>Login</h2>
         <div>
           <div className="form-group">
