@@ -14,13 +14,15 @@ var AccountsHistory = React.createClass({
   },
   render: function (){
     var rows = this.state.details.map(function (detail, idx){
-      return (<tr>
-            <td> {idx + 1}. </td>
-            <td> {detail.date} </td>
-            <td> {detail.transactionType} </td>
-            <td> {detail.transactionBy} </td>
-            <td> {detail.amount} </td>
-          </tr>)
+      return (
+        <tr>
+          <td className="ax-grid-action-1"> {idx + 1}. </td>
+          <td> {detail.date} </td>
+          <td> {detail.transactionType} </td>
+          <td> {detail.transactionBy} </td>
+          <td> {detail.amount} </td>
+        </tr>
+      );
     });
     return(
       <div>

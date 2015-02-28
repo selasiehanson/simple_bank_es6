@@ -11,9 +11,9 @@ var Login = React.createClass({
   },
 
   getInitialState: function (){
-      return {
-        error: false
-      }
+    return {
+      error: false
+    }
   },
 
   handleSubmit: function (e){

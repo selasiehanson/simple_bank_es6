@@ -11,6 +11,7 @@ import AccountsHistory from './accountshistory'
 import Login from './login'
 import Logout from './logout'
 import NewAccount from './newaccount'
+import Accounts from './accounts'
 
 var Link = ReactRouter.Link;
 var Route = ReactRouter.Route;
@@ -23,7 +24,9 @@ var routes = (
         <Route name="checkAccounts" handler={CheckAccounts} />
         <Route name="transferFunds" handler={TransferFunds} />
         <Route name="accountHistory" handler={AccountsHistory} />
-        <Route name="signup" handler={NewAccount} />
+        <Route name="accounts" handler={Accounts}>
+          <Route name="newaccount" handler={NewAccount} />
+        </Route>
       </Route>
       <Route name="signin" handler={Login} />
       <Route name="logout" handler={Logout} />

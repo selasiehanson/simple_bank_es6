@@ -30,6 +30,7 @@ gulp.task('browser-sync', function() {
   browserSync.init([
     './build/css/*.css',
     './build/js/**/*.js',
+    './build/js/**/**/*.js',
     './**/*.html'
   ],
   {
