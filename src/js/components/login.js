@@ -26,7 +26,7 @@ var Login = React.createClass({
         var transition = Login.attemptedTransition;
         Login.attemptedTransition = null;
         transition.retry();
-      }else {
+      }else {        
         this.replaceWith("/home")
       }
     }.bind(this));

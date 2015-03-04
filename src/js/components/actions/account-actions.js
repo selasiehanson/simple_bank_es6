@@ -8,6 +8,12 @@ export default Flux.createActions({
       actionType: "LOAD_CLIENTS"
     }
   },
+  getClient: function (id){
+    return {
+      actionType: "GET_CLIENT",
+      id: id
+    }
+  },
   addClient: function (data){
     return {
       actionType: "ADD_CLIENT",

@@ -35,7 +35,6 @@ var Master = React.createClass({
         links.push(<li><Link to="logout">Log out</Link></li>)
       }else {
         links.push(<li><Link to="signin">Sign in</Link></li>)
-        links.push(<li><Link to="signup">Sign up</Link></li>)
       }
       return(<div>
 

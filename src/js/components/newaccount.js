@@ -4,36 +4,62 @@ import ReactRouter from 'react-router'
 import _ from "lodash"
 
 import AccountActions from './actions/account-actions'
+import AccountsStore from './stores/accounts-store'
 
 window.ud = _;
 
 var {Link, RouteHandler } = ReactRouter;
 
+var intFields = ["snnitNumber", 'accountNumber'];
+var fields = ["firstName", "lastName", "dateOfBirth", "phoneNumber",
+               "occupation", "branch",
+              "pin", "passCode"];
+
+fields = _.union(intFields, fields);
+
 var NewAccount = React.createClass({
+  mixins: [ReactRouter.State, AccountsStore.mixin],
+
+  getInitialState: function (){
+    var clientId = this.getParams().clientId || -1;
+    if(clientId > 0) {
+      AccountActions.getClient(clientId);
+    }
+    return {};
+  },
+  storeDidChange: function (){
+    var client = AccountsStore.getSelected()
+    fields.forEach((field) => {
+      this.refs[field].getDOMNode().value = client[field];
+    });
+    this.refs['pin'].getDOMNode().value = '';
+    this.refs['passCode'].getDOMNode().value = '';
+    this.setState({
+      clientId: client.id
+    });
+  },
   handleSubmit: function (){
     var data = {};
-    var intFields = ["snnitNumber", 'accountNumber'];
-    var fields = ["firstName", "lastName", "dateOfBirth", "phoneNumber",
-                   "occupation", "branch",
-                  "pin", "passCode"];
 
-    fields = _.union(intFields, fields);
     fields.forEach(function (field){
       data[field] = this.refs[field].getDOMNode().value;
-    }.bind(this))
+    }.bind(this));
 
     intFields.forEach(function (field){
       data[field] = parseInt(data[field]);
     });
-    window.xx = data
+
     var date = new Date(data['dateOfBirth'])
     data['dateOfBirth'] = date.toJSON()
-
-    console.log(data)
-    console.log("sending data to AccountStore")
-    AccountActions.addClient(data);
+    if(this.state.clientId){
+      data['id'] = this.state.clientId;
+      AccountActions.updateClient(data);
+    }else {
+      AccountActions.addClient(data);
+    }
   },
   render : function (){
+    window.kl = this.state
     return (
       <div>
         <div className="panel panel-default">
@@ -41,7 +67,7 @@ var NewAccount = React.createClass({
           <div className="panel-body">
             <div className="form-group col-md-6">
               <label> First name</label>
-              <input ref="firstName" type="text" name="firstName" className="form-control" />
+              <input ref="firstName"  type="text" name="firstName" className="form-control" />
             </div>
             <div className="form-group col-md-6">
               <label> Last name</label>

@@ -20,7 +20,7 @@ var proxy = require('proxy-middleware');
 * 4. Compile sass files, autoprefix and put in 'build' folder
 * */
 
-var proxyOptions = url.parse('http://localhost:8050');
+var proxyOptions = url.parse('http://localhost:3000');
 proxyOptions.route = "/api"
 
 var middlewares = [proxy(proxyOptions)];

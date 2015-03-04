@@ -10,7 +10,8 @@ var { Link, RouteHandler } = ReactRouter;
 
 function getAccounts (){
   return {
-    accounts: AccountsStore.all()
+    accounts: AccountsStore.all(),
+    currentClientId: 0
   }
 }
 
@@ -27,15 +28,29 @@ var Accounts = React.createClass({
     this.setState(getAccounts());
     console.log("store has changed");
   },
+  onEditClicked: function (e){
+    console.log("edit clicked")
+    var clientId = this.getParams().clientId || -1;
+    if(clientId > 0) {
+      AccountActions.getClient(clientId);
+    }
+  },
+  onDeleteClient: (id) => {
+    console.log(`${id}  clicked to be deleted`)
+    AccountActions.deleteClient(id);
+  },
   render: function (){
-    var page = _.last(this.getPath().split("/"));
+    var pages = _.compact(this.getPath().split("/"));
+    var page = _.last(pages)
+
     var klass = '' ;
     var showNew = {};
 
-    if(page === 'newaccount'){
+    if(page === 'new' || page === 'edit'){
       klass = 'col-md-6';
       showNew.display = 'block';
-    }else {
+    }
+    else {
       klass = 'col-md-12';
       showNew.display = 'none';
     }
@@ -47,8 +62,14 @@ var Accounts = React.createClass({
           <td> {account.firstName} { account.lastName} </td>
           <td> {account.accountNumber} </td>
           <td> {account.branch} </td>
+          <td>
+            <Link className="" to="editaccount" params={{ clientId: account.id }} onClick={this.onEditClicked}>
+              <span className="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </Link>
+            <a className="delete-icon" onClick={this.onDeleteClient.bind(this, account.id)}> <span className="glyphicon glyphicon-trash"> </span> </a>
+          </td>
         </tr>);
-      });
+      }.bind(this));
 
       return (  <div>
         <div className="page-header clearfix">
@@ -66,6 +87,8 @@ var Accounts = React.createClass({
                   <th>Name</th>
                   <th>Account Number</th>
                   <th>Branch</th>
+                  <th className="ax-grid-action-3">
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -77,6 +100,5 @@ var Accounts = React.createClass({
     );
   }
 });
-
 
 export default Accounts;
